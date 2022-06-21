@@ -13,17 +13,19 @@ import {useRouter} from "next/router";
 export default function Header({ className }) {
   const router = useRouter();
 
-  const handlerButton = async () => {
+  const handlerButton = () => {
     console.log('Action Init');
-    try {
-      const request = await fetch('https://web-sso.vercel.app/api/authorization?' + new URLSearchParams({
-        method: 'POST',
-        endpoint: 'http://localhost:3000/'
-      }));
+    router.push('https://web-sso.vercel.app/');
 
-      const response = await request.json();
-      console.log('Response', response);
-    } catch (e) { 'Error Message', e }
+    // try {
+    //   const request = await fetch('https://web-sso.vercel.app/api/authorization?' + new URLSearchParams({
+    //     method: 'POST',
+    //     endpoint: 'http://localhost:3000/'
+    //   }));
+    //
+    //   const response = await request.json();
+    //   console.log('Response', response);
+    // } catch (e) { 'Error Message', e }
   }
 
   return (
