@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import Router from 'next/router';
-import { initGA, logPageView } from 'analytics';
 // Load DM Sans typeface
 import 'typeface-dm-sans';
 
