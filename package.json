@@ -7,7 +7,6 @@
     "build": "next build",
     "serve": "next start",
     "export": "next export",
-    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
@@ -35,6 +34,5 @@
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-optipng": "^8.0.0",
     "imagemin-svgo": "^8.0.0",
-    "next-sitemap": "^1.2.4"
   }
 }
