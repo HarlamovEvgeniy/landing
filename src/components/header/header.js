@@ -15,7 +15,7 @@ export default function Header({ className }) {
 
   const handlerButton = () => {
     console.log('Action Init');
-    router.push('https://web-sso.vercel.app/');
+    window.open('https://web-sso.vercel.app/', '_blank');
 
     // try {
     //   const request = await fetch('https://web-sso.vercel.app/api/authorization?' + new URLSearchParams({
