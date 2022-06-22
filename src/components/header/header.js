@@ -17,14 +17,14 @@ export default function Header({ className }) {
         method: 'GET',
         endpoint: 'https://test-authorization.vercel.app/api/response',
       }));
-      const response = await request;
-      console.log(response.body)
+      const response = await request.json();
 
-      // if(response) {
-      //   window.open(response.toString(), '_blank');
-      // }
-      // console.log('Response', response);
-    } catch (e) { 'Error Message', e }
+      if(response?.url) {
+        console.log('Response', response)
+        window.open(response?.url, '_blank');
+      }
+
+    } catch (e) { console.log('Error Message', e) }
   }
 
   return (
