@@ -8,24 +8,22 @@ import LogoWhite from 'assets/logo.svg';
 import { DrawerProvider } from '../../contexts/drawer/drawer.provider';
 import MobileDrawer from './mobile-drawer';
 import menuItems from './header.data';
-import {useRouter} from "next/router";
 
 export default function Header({ className }) {
-  const router = useRouter();
 
-  const handlerButton = () => {
-    console.log('Action Init');
-    window.open('https://web-sso.vercel.app/', '_blank');
+  const handlerButton = async () => {
+    try {
+      const request = await fetch('https://web-sso.vercel.app/api/authorization?' + new URLSearchParams({
+        method: 'POST',
+        endpoint: 'https://test-authorization.vercel.app/api/response',
+      }));
+      const response = await request;
 
-    // try {
-    //   const request = await fetch('https://web-sso.vercel.app/api/authorization?' + new URLSearchParams({
-    //     method: 'POST',
-    //     endpoint: 'http://localhost:3000/'
-    //   }));
-    //
-    //   const response = await request.json();
-    //   console.log('Response', response);
-    // } catch (e) { 'Error Message', e }
+      if(response) {
+        window.open(response.toString(), '_blank');
+      }
+      console.log('Response', response);
+    } catch (e) { 'Error Message', e }
   }
 
   return (
