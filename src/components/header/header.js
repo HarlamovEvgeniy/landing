@@ -14,15 +14,16 @@ export default function Header({ className }) {
   const handlerButton = async () => {
     try {
       const request = await fetch('https://web-sso.vercel.app/api/authorization?' + new URLSearchParams({
-        method: 'POST',
+        method: 'GET',
         endpoint: 'https://test-authorization.vercel.app/api/response',
       }));
       const response = await request;
+      console.log(response.body)
 
-      if(response) {
-        window.open(response.toString(), '_blank');
-      }
-      console.log('Response', response);
+      // if(response) {
+      //   window.open(response.toString(), '_blank');
+      // }
+      // console.log('Response', response);
     } catch (e) { 'Error Message', e }
   }
 
