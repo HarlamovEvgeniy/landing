@@ -13,14 +13,18 @@ export default function Header({ className }) {
 
   const handlerButton = async () => {
     try {
-      const request = await fetch('https://web-sso.vercel.app/api/authorization?' + new URLSearchParams({
+      const request = await fetch('http://185.225.35.119:5000/api/url?' + new URLSearchParams({
         method: 'GET',
         endpoint: 'https://test-authorization.vercel.app/api/response',
       }));
       const response = await request.json();
 
       if(response?.url) {
-        console.log('Response', response)
+        const url = new URL(response.url);
+        const params = new Proxy(new URLSearchParams(url.search), {
+          get: (searchParams, prop) => searchParams.get(prop),
+        });
+        console.log('Message JSON', JSON.parse(atob(params?.auth)));
         window.open(response?.url, '_blank');
       }
 
