@@ -15,7 +15,7 @@ export default function Header({ className }) {
     try {
       const request = await fetch('http://185.225.35.119:5000/api/url?' + new URLSearchParams({
         method: 'GET',
-        endpoint: 'http://test-authorization.vercel.app/api/response',
+        endpoint: 'https://test-authorization.vercel.app/',
       }));
       const response = await request.json();
 
