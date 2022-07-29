@@ -10,6 +10,7 @@ class CustomDocument extends Document {
     return (
       <Html lang="en-US">
         <Head />
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>
         <body>
           <Main />
           <NextScript />
