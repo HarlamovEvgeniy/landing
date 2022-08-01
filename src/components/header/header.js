@@ -13,7 +13,7 @@ export default function Header({ className }) {
 
   const handlerButton = async () => {
     try {
-      const request = await fetch('http://185.225.35.119:5000/api/url?' + new URLSearchParams({
+      const request = await fetch('https://sso-defispace.ru/api/url?' + new URLSearchParams({
         method: 'GET',
         endpoint: 'https://test-authorization.vercel.app/',
       }));
