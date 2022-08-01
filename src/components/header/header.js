@@ -8,8 +8,12 @@ import LogoWhite from 'assets/logo.svg';
 import { DrawerProvider } from '../../contexts/drawer/drawer.provider';
 import MobileDrawer from './mobile-drawer';
 import menuItems from './header.data';
+import { useRouter } from 'next/router';
 
 export default function Header({ className }) {
+
+  const router = useRouter();
+  console.log(router.query?.data);
 
   const handlerButton = async () => {
     try {
@@ -59,15 +63,17 @@ export default function Header({ className }) {
             ))}
           </Flex>
 
-          <Button
-            onClick={() => {handlerButton()}}
-            className="donate__btn"
-            variant="secondary"
-            aria-label="Get Started"
-          >
-            Sign in with SSO
-          </Button>
+          {
+            router.query?.data ? <div>Welome!</div> :
+            <Button
+              onClick={() => {handlerButton()}}
+              className="donate__btn"
+              variant="secondary"
+              aria-label="Get Started"
+            >
+            </Button>
 
+          }
           <MobileDrawer />
         </Container>
       </header>

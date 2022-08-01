@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import { DrawerContext } from './drawer.context';
 const initialState = {
   isOpen: false,
+  isAuth: false,
 };
 
 function reducer(state, action) {
@@ -10,6 +11,7 @@ function reducer(state, action) {
       return {
         ...state,
         isOpen: !state.isOpen,
+        isAuth: true
       };
     default:
       return state;

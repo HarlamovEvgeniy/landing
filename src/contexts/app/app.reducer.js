@@ -6,6 +6,11 @@ export const initialState = {
 
 export function reducer(state, { type }) {
   switch (type) {
+    case 'SET_USER': 
+      return {
+        ...state,
+        isAuth: true,
+      }
     case 'SET_STICKY':
       return {
         ...state,
