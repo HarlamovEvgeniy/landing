@@ -1,6 +1,7 @@
 export const initialState = {
   isSticky: false,
   isSidebarSticky: true,
+  isAuth: false
 };
 
 export function reducer(state, { type }) {
