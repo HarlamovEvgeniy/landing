@@ -17,10 +17,7 @@ export default function Header({ className }) {
         method: 'GET',
         endpoint: 'https://test-authorization.vercel.app/',
       });
-      console.log('URL', url)
-      window.open(url, '_blank');
-
-      
+      window.open(url);
 
       // const request = await fetch('https://sso-defispace.ru/api/url?' + new URLSearchParams({
       //   method: 'GET',
