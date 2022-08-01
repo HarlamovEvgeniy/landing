@@ -13,20 +13,29 @@ export default function Header({ className }) {
 
   const handlerButton = async () => {
     try {
-      const request = await fetch('https://sso-defispace.ru/api/url?' + new URLSearchParams({
+      const url = 'https://sso-defispace.ru/api/url?' + new URLSearchParams({
         method: 'GET',
         endpoint: 'https://test-authorization.vercel.app/',
-      }));
-      const response = await request.json();
+      });
+      console.log('URL', url)
+      window.open(url, '_blank');
 
-      if(response?.url) {
-        const url = new URL(response.url);
-        const params = new Proxy(new URLSearchParams(url.search), {
-          get: (searchParams, prop) => searchParams.get(prop),
-        });
-        console.log('Message JSON', JSON.parse(atob(params?.auth)));
-        window.open(response?.url, '_blank');
-      }
+      
+
+      // const request = await fetch('https://sso-defispace.ru/api/url?' + new URLSearchParams({
+      //   method: 'GET',
+      //   endpoint: 'https://test-authorization.vercel.app/',
+      // }));
+      // const response = await request.json();
+
+      // if(response?.url) {
+      //   const url = new URL(response.url);
+      //   const params = new Proxy(new URLSearchParams(url.search), {
+      //     get: (searchParams, prop) => searchParams.get(prop),
+      //   });
+      //   console.log('Message JSON', JSON.parse(atob(params?.auth)));
+      //   window.open(response?.url, '_blank');
+      // }
 
     } catch (e) { console.log('Error Message', e) }
   }
