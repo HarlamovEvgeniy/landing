@@ -64,13 +64,14 @@ export default function Header({ className }) {
           </Flex>
 
           {
-            router.query?.data ? <div>Welome!</div> :
+            router.query?.data ? <div>Welcome!</div> :
             <Button
               onClick={() => {handlerButton()}}
               className="donate__btn"
               variant="secondary"
               aria-label="Get Started"
             >
+              Sign in with SSO
             </Button>
 
           }
